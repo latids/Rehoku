@@ -16,9 +16,9 @@
 
 ## Installation
 
-`npm i rehoku`
-`yarn add rehoku`
-`pnpm add rehoku`
+- `npm i rehoku`
+- `yarn add rehoku`
+- `pnpm add rehoku`
 
 ## Contributing
 
