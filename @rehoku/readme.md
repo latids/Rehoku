@@ -30,6 +30,4 @@ Resolved the issue 'automatic suggestion of importing' specific hooks from the p
 
 # Documentation
 
-[Github/Rehoku/Documentation]()
-
-- Documentation is currently empty.
+- For documentation check = [Github/Rehoku/Documentation](https://github.com/latids/Rehoku/blob/main/documentation/DOCUMENTATION.MD)
