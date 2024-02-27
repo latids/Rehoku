@@ -1,0 +1,44 @@
+{
+  "name": "rehoku",
+  "version": "0.3.7",
+  "description": "A Custom React Hook Package",
+  "exports": {
+    ".": "./index.js",
+    "./dist/bundle.mjs": "./dist/bundle.mjs"
+  },
+  "main": "index.js",
+  "module": "index.js",
+  "type": "module",
+  "keywords": [
+    "react",
+    "custom-hook",
+    "hook",
+    "react-hooks",
+    "rehoku"
+  ],
+  "scripts": {
+    "build:dev": "rollup -c --environment NODE_ENV:development",
+    "build": "rollup -c --environment NODE_ENV:production"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "author": {
+    "name": "Batın Yiğit Güler",
+    "email": "btnygtg@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/latids/Rehoku"
+  },
+  "devDependencies": {
+    "rollup": "^2.79.1",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
