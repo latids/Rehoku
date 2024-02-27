@@ -26,9 +26,9 @@
 
 # Changelog
 
-### In version 0.2.0:
+### In version 0.3.0:
 
-Resolved the issue 'automatic suggestion of importing' specific hooks from the package. This was a recurring problem in the 'lati-hooks' as well. To address this, I remade the existing 'lati-hooks' and made adjustments to certain dependencies to ensure better compatibility among them. Additionally, the minification of the build process has been successfully implemented.
+Some adjustments for package.json and rollup.config.js 
 
 # Documentation
 
