@@ -26,9 +26,9 @@
 
 # Changelog
 
-### In version 0.3.0:
+### In version 0.4.0:
 
-Some adjustments for package.json and rollup.config.js 
+-
 
 # Documentation
 
