@@ -28,7 +28,7 @@
 
 ### In version 0.4.0:
 
--
+- Fixed 'setTimeout' to 'setInterval' for running wanted continuously with delay, previous useTimeout wasnt working because of that misspelling.
 
 # Documentation
 
