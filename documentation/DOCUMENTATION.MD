@@ -313,8 +313,133 @@ const Component = () => {
 
 ---
 
-# `...`
+# `useHover`
 
-- ...
+- The `useHover` hook tracks whether an element is being hovered over by the mouse pointer.
 
 ```
+const Component = () => {
+  const [hoverRef, isHovered] = useHover();
+
+  return (
+    <div>
+      <div ref={hoverRef}>
+        Hover over me!
+      </div>
+      <p>{isHovered ? "Hovered" : "Not hovered"}</p>
+    </div>
+  );
+};
+```
+
+---
+
+# `useValidation`
+
+- The useValidation hook provides functionality to validate email and password. It returns an error message if the input data does not meet the specified criteria.
+
+```
+const Component = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { error, validate } = useValidation();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validate(email, password)) {
+      console.log("Validation passed");
+    } else {
+      console.error("Validation failed:", error);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Enter your password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button type="submit">Sign Up</button>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+    </form>
+  );
+};
+```
+
+---
+
+# `useQueue`
+
+- The useQueue hook enables the creation and management of a queue data structure. Operating on a first-in, first-out (FIFO) basis, provides functions to add, remove, and inspect elements within.
+
+```
+const Component = () => {
+  const { enqueue, dequeue, peek, size, clear, queue } = useQueue();
+
+  enqueue("Apple");
+  enqueue("Banana");
+  enqueue("Orange");
+
+  const removedItem = dequeue();
+
+  return (
+    <div>
+      <p>Current Queue: {JSON.stringify(queue)}</p>
+      <p>Peek: {peek()}</p>
+      <p>Size: {size()}</p>
+      <p>Removed Item: {removedItem}</p>
+      <button onClick={() => clear()}>Clear Queue</button>
+    </div>
+  );
+};
+```
+
+---
+
+# `useCache`
+
+- The useCache hook provides a simple caching mechanism for fetched data. It fetches data from a remote source and stores it in memory, allowing subsequent requests for the same data to be served from the cache instead of making additional network requests.
+
+```
+const Component = () => {
+const cachedTodos = useCache("todos", fetchTodos);
+
+const clearCache = (key) => {
+  delete cache[key];
+};
+
+const fetchTodos = async () => {
+const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+if (!response.ok) throw new Error("Failed to fetch todos");
+const data = await response.json();
+return data;
+};
+
+return (
+  <div>
+    {cachedTodos ? (
+      <div>
+      <ul>
+      {cachedTodos.map(todo => (
+      <li key={todo.id}>
+      {todo.title}
+      </li>
+      ))}
+      </ul>
+      <button onClick={() => clearCache("todos")}>Clear Cache</button>
+      </div>
+    ) : ( <p>Loading...</p> )}
+  </div>
+  );
+};
+```
+
+---
