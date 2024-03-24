@@ -1,7 +1,5 @@
 # Documentation
 
-* Missing/New hooks will be updated soon.
-
 - [useDebounce](#usedebounce)
 - [useFetch](#usefetch)
 - [useKeyPress](#usekeypress)
