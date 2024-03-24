@@ -324,7 +324,7 @@ const Component = () => {
   return (
     <div>
       <div ref={hoverRef}>
-        Hover over me!
+        Hover here
       </div>
       <p>{isHovered ? "Hovered" : "Not hovered"}</p>
     </div>
@@ -443,3 +443,211 @@ return (
 ```
 
 ---
+
+# `useArray`
+
+- The useArray hook provides functionality to manage an array, allowing operations such as adding, removing, updating, and sorting elements within.
+
+```
+const Component = () => {
+const { array, addItem, removeItem, updateItem, clearArray, getItem, findItem, sortArray, swapItems, filterArray } = useArray([]);
+
+addItem("Apple");
+addItem("Banana");
+addItem("Orange");
+
+const removedItem = removeItem(1);
+const updatedItem = updateItem(0, "Pear");
+
+return (
+  <div>
+    <p>Current Array: {JSON.stringify(array)}</p>
+    <p>Item at index 0: {getItem(0)}</p>
+    <p>Find 'Orange': {findItem(item => item === 'Orange')}</p>
+    <button onClick={() => clearArray()}>Clear Array</button>
+  </div>
+  );
+};
+```
+
+---
+
+# `useCookie`
+
+- The useCookie hook provides functionality to manage a cookie value within a React application. It utilizes the browser's local storage to store and retrieve the cookie value.
+
+```
+function Component() {
+const { cookie, updateCookie, deleteCookie } = useCookie("myCookie");
+
+return (
+  <div>
+    <p>Current Cookie: {cookie}</p>
+    <button onClick={() => updateCookie("newCookieValue")}>Update Cookie</button>
+    <button onClick={() => deleteCookie()}>Delete Cookie</button>
+  </div>
+  );
+}
+```
+
+---
+
+# `useDeepCopy`
+
+- The useDeepCopy hook provides functionality to create a deep copy of an object and manage its state within a React component. It utilizes JSON parsing to ensure that nested objects are also deeply copied.
+
+```
+function Component({ initialObject }) {
+const { copiedObject, copyObject } = useDeepCopy(initialObject);
+
+return (
+  <div>
+    <button onClick={() => copyObject()}>Copy Object</button>
+    <pre>{JSON.stringify(copiedObject, null, 2)}</pre>
+  </div>
+  );
+}
+```
+
+---
+
+# `useDidMount`
+
+- The useDidMount hook executes a callback function once when the component mounts. It is useful for performing initialization tasks or any actions that should only occur once when the component is mounted.
+
+```
+function Component() {
+  useDidMount(() => {
+    // This function will be called when the component mounts
+    console.log("Component mounted!");
+    document.title = "mounted";
+  });
+}
+```
+
+---
+
+# `useFocus`
+
+- The useFocus hook provides functionality to automatically focus an HTML element when a component mounts. It utilizes React's useRef and useEffect hooks to manage the focus behavior.
+
+```
+function Component() {
+  const inputRef = useFocus();
+
+  return (
+    <div>
+      <input ref={inputRef} type="text" /> //this will be focused on `Component` mounts/loads.
+    </div>
+  );
+}
+```
+
+---
+
+# `useFullScreen`
+
+- The useFullScreen hook provides functionality to manage the full-screen mode of an element within a React component. It allows you to enter, exit, and toggle full-screen mode, and provides the current full-screen state.
+
+```
+function Component() {
+  const { isFullScreen, toggleFullScreen } = useFullScreen();
+
+  return (
+    <div>
+      <button onClick={toggleFullScreen}>
+        {isFullScreen ? "Exit Full Screen" : "Enter Full Screen"}
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+# `usePrint`
+
+- The usePrint hook provides functionality to trigger the browser's print dialog when called. It utilizes React's useCallback hook to memoize the print handler function.
+
+```
+function Component() {
+  const handlePrint = usePrint();
+
+  return (
+    <div>
+      <button onClick={handlePrint}>Print</button>
+    </div>
+  );
+}
+```
+
+---
+
+# `useMediaQuery`
+
+- The useMediaQuery hook enables tracking of a CSS media query in a React component. It utilizes React's useState and useEffect hooks to manage the state of whether the media query matches the current viewport size.
+
+```
+function Component() {
+  const isSmallScreen = useMediaQuery("(max-width: 768px)"); // Check if the screen width is smaller than 768px
+
+  return (
+    <div>
+      {isSmallScreen ? <p>Small screen</p> : <p>Large screen</p>}
+      {/* Render different content based on screen size */}
+    </div>
+  );
+}
+```
+
+---
+
+# `useScrollLock`
+
+- The useScrollLock hook allows locking or unlocking scrolling behavior on the page based on a boolean value. It utilizes React's useEffect hook to add or remove event listeners for scroll events and manage the overflow property of the body element.
+
+```
+function Component() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  // Call hook to lock scrolling when the modal is open
+  useScrollLock(isModalOpen);
+
+  return (
+    <div>
+      <button onClick={toggleModal}>Open Modal</button>
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={toggleModal}>
+              &times;
+            </span>
+            <p>This is a modal. Scrolling is locked.</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+# `useMetaTag`
+
+- The useMetaTag hook allows dynamically updating the title, description, and keywords meta tags of the document's head based on provided values. It utilizes React's useEffect hook to update the meta tags whenever the provided values change.
+
+```
+function Component() {
+  useMetaTag("PageTitle", "added Description", "keywords, react, hooks"); 
+  // Set the title, description, and keywords for the page
+}
+```
+
+---
+
+
