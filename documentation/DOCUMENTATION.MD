@@ -1,5 +1,7 @@
 # Documentation
 
+* Missing/New hooks will be updated soon.
+
 - [useDebounce](#usedebounce)
 - [useFetch](#usefetch)
 - [useKeyPress](#usekeypress)
@@ -12,6 +14,20 @@
 - [useTimeout](#usetimeout)
 - [useIsDarkMode](#useisdarkmode)
 - [useConsole](#useconsole)
+- [useHover](#usehover)
+- [useValidation](#usevalidation)
+- [useQueue](#usequeue)
+- [useCache](#usecache)
+- [useArray](#usearray)
+- [useCookie](#usecookie)
+- [useDeepCopy](#usedeepcopy)
+- [useDidMount](#usedidmount)
+- [useFocus](#usefocus)
+- [useFullscreen](#usefullscreen)
+- [usePrint](#useprint)
+- [useMediaQuery](#usemediaquery)
+- [useScrollLock](#usescrolllock)
+- [useMetaTag](#usemetatag)
 
 ## `useDebounce`
 
